@@ -1,5 +1,15 @@
 {
+  "name": "ts-pet-profiles",
+  "version": "1.0.0",
+  "private": true,
+  "main": "index.html",
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc -w",
+    "start": "npm run build && lite-server"
+  },
   "devDependencies": {
-    "lite-server": "^2.6.1"
+    "typescript": "5.6.3",
+    "lite-server": "2.6.1"
   }
 }

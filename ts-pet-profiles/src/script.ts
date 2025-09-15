@@ -1,4 +1,4 @@
-export enum PetCategory {
+enum PetCategory {
   DOG,
   CAT,
   BIRD,
@@ -116,3 +116,6 @@ const petContractor: PetProfile = {
   }
 };
 petContractor.print();
+
+const msg: string = "Hello from TypeScript!";
+console.log(msg);
