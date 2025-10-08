@@ -1,0 +1,10 @@
+<h2>Template Reference Variable & ViewChild</h2>
+
+<!-- Input field with template reference -->
+<input #textInput type="text" placeholder="Enter text">
+
+<!-- Button triggers function -->
+<button (click)="applyText(textInput.value)">Apply Text</button>
+
+<!-- Paragraph with template reference -->
+<p #displayParagraph>This is the default text.</p>
