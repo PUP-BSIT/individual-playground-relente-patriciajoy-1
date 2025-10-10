@@ -1,10 +1,20 @@
-<h2>Template Reference Variable & ViewChild</h2>
+<!-- <h2>Template Reference Variable & ViewChild</h2> -->
 
 <!-- Input field with template reference -->
-<input #textInput type="text" placeholder="Enter text">
+<!-- <input #textInput type="text" placeholder="Enter text"> -->
 
 <!-- Button triggers function -->
-<button (click)="applyText(textInput.value)">Apply Text</button>
+<!-- <button (click)="applyText(textInput.value)">Apply Text</button> -->
 
 <!-- Paragraph with template reference -->
-<p #displayParagraph>This is the default text.</p>
+<!-- <p #displayParagraph>This is the default text.</p> -->
+
+<h2>Timer</h2>
+
+<p>{{ seconds }} seconds</p>
+
+<div class="button-group">
+  <button (click)="startTimer()" [disabled]="isRunning">Start</button>
+  <button (click)="pauseTimer()" [disabled]="!isRunning">Pause</button>
+  <button (click)="resetTimer()">Reset</button>
+</div>
