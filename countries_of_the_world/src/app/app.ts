@@ -1,10 +1,11 @@
 import { Component, signal } from '@angular/core';
 import { CountriesComponent } from './countries/countries';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CountriesComponent],
+  imports: [CommonModule, CountriesComponent],
   templateUrl: './app.html',
   styleUrls: ['./app.scss']
 })

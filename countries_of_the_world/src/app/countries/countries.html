@@ -23,17 +23,21 @@
   </form>
 
   <hr>
-  <div *ngIf="country$ | async as country; else invalid">
-    <div class="result">
-      <img [src]="country.flags.png" alt="Flag" width="120">
-      <h3>{{ country.name.common }}</h3>
-      <p><strong>Capital:</strong> {{ country.capital[0] }}</p>
-      <p><strong>Population:</strong> {{ country.population | number }}</p>
-      <p><strong>Region:</strong> {{ country.region }}</p>
-    </div>
-  </div>
 
-  <ng-template #invalid>
-    <p class="error">Invalid country name or not found.</p>
-  </ng-template>
+  <!-- show results or error AFTER typing -->
+  <div *ngIf="countryControl?.value?.length >= 2">
+    <div *ngIf="country$ | async as country; else invalid">
+        <div class="result">
+          <img [src]="country.flags.png" alt="Flag" width="120">
+          <h3>{{ country.name.common }}</h3>
+          <p><strong>Capital:</strong> {{ country.capital[0] }}</p>
+          <p><strong>Population:</strong> {{ country.population | number }}</p>
+          <p><strong>Region:</strong> {{ country.region }}</p>
+        </div>
+      </div>
+
+    <ng-template #invalid>
+      <p class="error">Invalid country name or not found.</p>
+    </ng-template>
+  </div>
 </div>
