@@ -1,1 +1,39 @@
-<p>countries works!</p>
+<div class="countries">
+  <h1>Countries of the World (RxJS)</h1>
+
+  <form [formGroup]="countryForm" class="country-form">
+    <label for="country">Enter Country Name:</label>
+    <input
+      id="country"
+      type="text"
+      formControlName="country"
+      placeholder="Type country name here"
+      required>
+
+    @if (countryControl?.touched && countryControl?.invalid) {
+      <div class="error">
+        @if (countryControl?.errors?.['required']) {
+          <small>Country name is required.</small>
+        }
+        @if (countryControl?.errors?.['minlength']) {
+          <small>Must be at least 2 characters long.</small>
+        }
+      </div>
+    }
+  </form>
+
+  <hr>
+  <div *ngIf="country$ | async as country; else invalid">
+    <div class="result">
+      <img [src]="country.flags.png" alt="Flag" width="120">
+      <h3>{{ country.name.common }}</h3>
+      <p><strong>Capital:</strong> {{ country.capital[0] }}</p>
+      <p><strong>Population:</strong> {{ country.population | number }}</p>
+      <p><strong>Region:</strong> {{ country.region }}</p>
+    </div>
+  </div>
+
+  <ng-template #invalid>
+    <p class="error">Invalid country name or not found.</p>
+  </ng-template>
+</div>
